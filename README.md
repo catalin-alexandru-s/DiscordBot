@@ -9,4 +9,5 @@ Proiect realizat in cadrul cursului de Programare Avansata de la FII.
 Membrii echipei sunt:
 
 -Luca Andreea-Raluca (2E4), 
+
 -Sîrcu Catalin-Alexandru (2E4).
