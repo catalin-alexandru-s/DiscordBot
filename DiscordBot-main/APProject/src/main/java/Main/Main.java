@@ -2,8 +2,11 @@ package Main;
 
 import Commands.Clear;
 import Commands.Info;
+import Commands.Invite;
+//import Event.GuildMemberJoin;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.Compression;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
@@ -34,5 +37,6 @@ public class Main {
     public static void registerListeners() {
         builder.addEventListeners(new Clear());
         builder.addEventListeners(new Info());
+        builder.addEventListeners(new Invite());
     }
 }

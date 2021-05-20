@@ -11,7 +11,7 @@ public class Info extends ListenerAdapter {
         if(args[0].equalsIgnoreCase(Main.prefix + "info")){
             EmbedBuilder info= new EmbedBuilder();
             info.setTitle("Commands available:");
-            info.setDescription("~clear integer\n~trivia");
+            info.setDescription("~clear integer\n~trivia\n~invite");
             info.setColor(0x9e1fff);
 
             event.getChannel().sendTyping().queue();
