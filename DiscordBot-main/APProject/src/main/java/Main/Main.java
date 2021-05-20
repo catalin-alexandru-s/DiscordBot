@@ -2,6 +2,7 @@ package Main;
 
 import Commands.Clear;
 import Commands.Info;
+import Commands.Mute;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.utils.Compression;
