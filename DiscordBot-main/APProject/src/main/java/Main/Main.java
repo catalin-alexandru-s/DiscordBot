@@ -2,8 +2,12 @@ package Main;
 
 import Commands.Clear;
 import Commands.Info;
+
 import Commands.Invite;
 //import Event.GuildMemberJoin;
+
+import Commands.Mute;
+
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -38,5 +42,7 @@ public class Main {
         builder.addEventListeners(new Clear());
         builder.addEventListeners(new Info());
         builder.addEventListeners(new Invite());
+        builder.addEventListeners(new Mute());
+
     }
 }

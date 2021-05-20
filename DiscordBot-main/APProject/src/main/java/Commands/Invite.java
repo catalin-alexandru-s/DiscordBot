@@ -9,7 +9,7 @@ public class Invite extends ListenerAdapter {
         int timeString = 10; //seconds in an hour
         String[] message = e.getMessage().getContentRaw().split(" "); //splits message received into an array holding each word in each index
         EmbedBuilder invite= new EmbedBuilder();
-        
+
         if (message.length == 1 && message[0].equalsIgnoreCase("~invite")){  //if they type the command alone, tell them how to use it
             e.getChannel().sendMessage("To use ~invite do: ~invite create").queue(); //tells user how to use the $invite command
         }else if(message[0].equalsIgnoreCase("~invite") && message[1].equalsIgnoreCase("create")) {
