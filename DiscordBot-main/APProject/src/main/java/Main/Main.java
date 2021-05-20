@@ -34,5 +34,6 @@ public class Main {
     public static void registerListeners() {
         builder.addEventListeners(new Clear());
         builder.addEventListeners(new Info());
+        builder.addEventListeners(new Mute());
     }
 }
