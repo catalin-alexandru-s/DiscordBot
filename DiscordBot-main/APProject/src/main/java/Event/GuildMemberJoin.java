@@ -1,6 +1,6 @@
-/*
-package Event;
 
+package Event;
+/*
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -49,13 +49,11 @@ public class GuildMemberJoin extends ListenerAdapter {
         int number= random.nextInt(messages.length);
         EmbedBuilder join=new EmbedBuilder();
         join.setColor(0x18883B);
-        join.setDescription(messages[number].replace("[member]", event.getMember);
+        join.setDescription(messages[number].replace("[member]", event.getMember()));
 
     }
 
 
 
 
-}
-
- */
+} */
