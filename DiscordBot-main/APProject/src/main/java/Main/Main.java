@@ -8,41 +8,33 @@ import Commands.Invite;
 
 import Commands.Mute;
 
+import Event.GuildMemberJoin;
+import Event.GuildMemberLeave;
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.Compression;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
+import javax.security.auth.login.LoginException;
+
 public class Main {
-    public static JDABuilder builder;
-    public static String prefix;
+    public static JDA jda;
+    public static String prefix = "~";
 
-    public static void main(String[] args) throws Exception {
-        String token = "ODQ0NjMxOTQ4MDkzMTYxNDk2.YKVOzA.vtYg1L7y3uGZOQ55uwBFZ7SFtN4";
-        prefix = "~";
-        builder = JDABuilder.createDefault(token);
+    public static void main(String[] args) throws LoginException {
 
+        jda = JDABuilder.createDefault("ODQ0NjMxOTQ4MDkzMTYxNDk2.YKVOzA.vtYg1L7y3uGZOQ55uwBFZ7SFtN4").enableIntents(GatewayIntent.GUILD_MEMBERS).disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE).setBulkDeleteSplittingEnabled(false).setCompression(Compression.NONE).setActivity(Activity.watching("over the java project")).build();
+        jda.getPresence().setStatus(OnlineStatus.ONLINE);
+        jda.getPresence().setActivity(Activity.listening("commands"));
 
-        builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
-
-        //If enabled, JDA will separate the bulk delete event into individual delete events, but this isn't as efficient as handling a single event would be.
-        builder.setBulkDeleteSplittingEnabled(false);
-
-        //Sets the compression algorithm used with the gateway connection, this will decrease the amount of used bandwidth for the running bot instance for the cost of a few extra cycles for decompression.
-        builder.setCompression(Compression.NONE);
-
-        builder.setActivity(Activity.watching("over the java project"));
-
-        registerListeners();
-        builder.build();
-    }
-
-    public static void registerListeners() {
-        builder.addEventListeners(new Clear());
-        builder.addEventListeners(new Info());
-        builder.addEventListeners(new Invite());
-        builder.addEventListeners(new Mute());
-
+        jda.addEventListener(new Clear());
+        jda.addEventListener(new Info());
+        jda.addEventListener(new Mute());
+        jda.addEventListener(new Invite());
+        jda.addEventListener(new GuildMemberJoin());
+        jda.addEventListener(new GuildMemberLeave());
     }
 }
