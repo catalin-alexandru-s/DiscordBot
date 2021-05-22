@@ -1,13 +1,6 @@
 package Main;
 
-import Commands.Clear;
-import Commands.Info;
-
-import Commands.Invite;
-//import Event.GuildMemberJoin;
-
-import Commands.Mute;
-
+import Commands.*;
 import Event.GuildMemberJoin;
 import Event.GuildMemberLeave;
 import net.dv8tion.jda.api.JDA;
@@ -28,13 +21,17 @@ public class Main {
 
         jda = JDABuilder.createDefault("ODQ0NjMxOTQ4MDkzMTYxNDk2.YKVOzA.vtYg1L7y3uGZOQ55uwBFZ7SFtN4").enableIntents(GatewayIntent.GUILD_MEMBERS).disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE).setBulkDeleteSplittingEnabled(false).setCompression(Compression.NONE).setActivity(Activity.watching("over the java project")).build();
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
-        jda.getPresence().setActivity(Activity.listening("commands"));
+        jda.getPresence().setActivity(Activity.listening("the Java project"));
 
-        jda.addEventListener(new Clear());
+        jda.addEventListener(new Clear());    //commands
         jda.addEventListener(new Info());
         jda.addEventListener(new Mute());
+        jda.addEventListener(new Trivia());
         jda.addEventListener(new Invite());
-        jda.addEventListener(new GuildMemberJoin());
+
+        jda.addEventListener(new GuildMemberJoin());  //events
         jda.addEventListener(new GuildMemberLeave());
+
+
     }
 }

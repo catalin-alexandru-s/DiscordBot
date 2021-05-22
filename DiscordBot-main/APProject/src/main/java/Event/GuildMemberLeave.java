@@ -12,12 +12,12 @@ public class GuildMemberLeave extends ListenerAdapter {
             "[member] left. bye bye fraere",
 
     };
-    public void onGuildMemberRemove(GuildMemberRemoveEvent event) throws NullPointerException
-    {
-        Random rand= new Random();
-        int number= rand.nextInt(messages.length);
 
-        EmbedBuilder leave=new EmbedBuilder();
+    public void onGuildMemberRemove(GuildMemberRemoveEvent event) throws NullPointerException {
+        Random rand = new Random();
+        int number = rand.nextInt(messages.length);
+
+        EmbedBuilder leave = new EmbedBuilder();
         leave.setColor(Color.MAGENTA);
         leave.setDescription(messages[number].replace("[member]", event.getUser().getAsMention()));
 

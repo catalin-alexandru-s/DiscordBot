@@ -1,15 +1,9 @@
-
 package Event;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import javax.annotation.Nonnull;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Random;
 
 public class GuildMemberJoin extends ListenerAdapter {
@@ -50,17 +44,17 @@ public class GuildMemberJoin extends ListenerAdapter {
             "[member] has arrived. Party's over.",
             "Ready player [member]"
     };
-    public void onGuildMemberJoin(GuildMemberJoinEvent event)
-    {
-        Random rand= new Random();
-        int number= rand.nextInt(messages.length);
 
-        EmbedBuilder join=new EmbedBuilder();
+    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+        Random rand = new Random();
+        int number = rand.nextInt(messages.length);
+
+        EmbedBuilder join = new EmbedBuilder();
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
 
         event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
     }
-    }
+}
 
 

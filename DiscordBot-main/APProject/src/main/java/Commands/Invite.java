@@ -8,11 +8,11 @@ public class Invite extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent e) {
         int timeString = 60; //seconds in an hour
         String[] message = e.getMessage().getContentRaw().split(" "); //splits message received into an array holding each word in each index
-        EmbedBuilder invite= new EmbedBuilder();
+        EmbedBuilder invite = new EmbedBuilder();
 
-        if (message.length == 1 && message[0].equalsIgnoreCase("~invite")){  //if they type the command alone, tell them how to use it
+        if (message.length == 1 && message[0].equalsIgnoreCase("~invite")) {  //if they type the command alone, tell them how to use it
             e.getChannel().sendMessage("To use ~invite \n do: ~invite create").queue(); //tells user how to use the $invite command
-        }else if(message[0].equalsIgnoreCase("~invite") && message[1].equalsIgnoreCase("create")) {
+        } else if (message[0].equalsIgnoreCase("~invite") && message[1].equalsIgnoreCase("create")) {
             e.getChannel().sendMessage("Hey " + e.getAuthor().getName() + "! You want to invite someone? Cool!").queue();
             e.getChannel().sendMessage("Give them this link: " + e.getChannel().createInvite().setMaxAge(timeString).complete().getUrl()).queue(); //create an invite, set length to 1 hour, return url as string
             e.getChannel().sendMessage("The invite expires in: " + timeString + " minutes.").queue(); //Tells them how long the invite will exist for
