@@ -9,14 +9,14 @@ public class Info extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split(" ");
         if (args[0].equalsIgnoreCase(Main.prefix + "info")) {
-            EmbedBuilder info = new EmbedBuilder();
-            info.setTitle("Commands available:");
-            info.setDescription("~clear integer\n~trivia\n~invite\n~mute\n");
-            info.setColor(0x9e1fff);
+            EmbedBuilder infoBuilder = new EmbedBuilder();
+            infoBuilder.setTitle("Commands available:");
+            infoBuilder.setDescription("~clear integer\n~trivia\n~invite\n~mute\n~search\n");
+            infoBuilder.setColor(0x9e1fff);
 
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage(info.build()).queue();
-            info.clear();
+            event.getChannel().sendMessage(infoBuilder.build()).queue();
+            infoBuilder.clear();
         }
 
     }

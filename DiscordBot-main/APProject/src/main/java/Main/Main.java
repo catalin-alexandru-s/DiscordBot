@@ -28,10 +28,10 @@ public class Main {
         jda.addEventListener(new Mute());
         jda.addEventListener(new Trivia());
         jda.addEventListener(new Invite());
+        jda.addEventListener(new Searching());
 
         jda.addEventListener(new GuildMemberJoin());  //events
         jda.addEventListener(new GuildMemberLeave());
-
 
     }
 }
