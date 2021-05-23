@@ -1,7 +1,6 @@
-package Commands;
+package Commands.TriviaCommand;
 
 import Main.Main;
-import Util.TriviaUtil;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -16,11 +15,11 @@ import java.awt.*;
 public class Trivia extends ListenerAdapter {
 
 
-    TriviaUtil utilTrivia;
+
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
-        utilTrivia = new TriviaUtil();
+
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
         if (args[0].equalsIgnoreCase(Main.prefix + "trivia")) {

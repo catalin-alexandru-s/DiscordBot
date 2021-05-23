@@ -1,6 +1,8 @@
 package Main;
 
 import Commands.*;
+import Commands.JokeCommand.Joke;
+import Commands.MemeCommand.Meme;
 import Commands.Music.PlayMusic;
 import Event.GuildMemberJoin;
 import Event.GuildMemberLeave;
@@ -27,14 +29,15 @@ public class Main {
         jda.addEventListener(new Clear());    //commands
         jda.addEventListener(new Info());
         jda.addEventListener(new Mute());
-        jda.addEventListener(new Trivia());
+        //jda.addEventListener(new Trivia());
         jda.addEventListener(new Invite());
         jda.addEventListener(new Searching());
         jda.addEventListener(new PlayMusic());
+        jda.addEventListener(new Joke());
+        jda.addEventListener(new Meme());
 
         jda.addEventListener(new GuildMemberJoin());  //events
         jda.addEventListener(new GuildMemberLeave());
-
 
     }
 }
