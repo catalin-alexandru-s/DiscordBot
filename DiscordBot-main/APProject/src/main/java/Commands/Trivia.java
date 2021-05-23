@@ -5,7 +5,9 @@ import Util.TriviaUtil;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
@@ -31,10 +33,8 @@ public class Trivia extends ListenerAdapter {
             event.getChannel().sendTyping().queue();
 
             sendMessageWithReactions(event.getChannel(), triviaBuilder.build(), "✅", "❌");
-//            if (event.getReaction().getReactionEmote().getEmoji().equals("✅")) {
-//
-//            }
 
+            //  if(event.getMessage().getReactionById()
 
             triviaBuilder.clear();
         }
@@ -47,5 +47,23 @@ public class Trivia extends ListenerAdapter {
                 msg.addReaction(reaction).queue();
             }
         });
+    }
+
+    public void onMessageReactionAdd(MessageReactionAddEvent e) {
+        MessageReaction reaction = e.getReaction();
+        MessageReaction.ReactionEmote emote = reaction.getReactionEmote();
+        MessageChannel channel = e.getChannel();
+
+        if (Main.jda.getSelfUser().getId() != e.getUserId()) {
+            if (emote.equals("✅")) {
+                channel.sendMessage("Vinculado!").queue();
+
+            } else {
+                if (emote.equals("❌")) {
+                    channel.sendMessage("Cancelado!").queue();
+                }
+            }
+        }
+
     }
 }

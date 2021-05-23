@@ -1,6 +1,7 @@
 package Main;
 
 import Commands.*;
+import Commands.Music.PlayMusic;
 import Event.GuildMemberJoin;
 import Event.GuildMemberLeave;
 import net.dv8tion.jda.api.JDA;
@@ -29,9 +30,11 @@ public class Main {
         jda.addEventListener(new Trivia());
         jda.addEventListener(new Invite());
         jda.addEventListener(new Searching());
+        jda.addEventListener(new PlayMusic());
 
         jda.addEventListener(new GuildMemberJoin());  //events
         jda.addEventListener(new GuildMemberLeave());
+
 
     }
 }
