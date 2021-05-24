@@ -5,6 +5,7 @@ import Commands.JokeCommand.Joke;
 import Commands.MemeCommand.Meme;
 import Commands.Music.PlayMusic;
 import Commands.TriviaCommand.Trivia;
+import Commands.TriviaTrueFalse.TriviaBool;
 import Event.GuildMemberJoin;
 import Event.GuildMemberLeave;
 import net.dv8tion.jda.api.JDA;
@@ -31,6 +32,7 @@ public class Main {
         jda.addEventListener(new Info());
         jda.addEventListener(new Mute());
         jda.addEventListener(new Trivia());
+        jda.addEventListener(new TriviaBool());
         jda.addEventListener(new Invite());
         jda.addEventListener(new Searching());
         jda.addEventListener(new PlayMusic());
