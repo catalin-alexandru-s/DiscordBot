@@ -6,7 +6,7 @@ public class Result {
     int response_code = 0;
     List<TriviaQuestion> results;
 
-    public Result(){
+    public Result() {
 
     }
 
