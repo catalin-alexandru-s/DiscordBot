@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class GuildMemberLeave extends ListenerAdapter {
     String[] messages = {
-            "[member] left. bye bye fraere",
+            "[member] left. bye bye [member]!",
+            "[member] unfortunately, left the party!"
 
     };
 

@@ -35,7 +35,7 @@ public class Main {
         jda.addEventListener(new PlayMusic());
         jda.addEventListener(new Joke());
         jda.addEventListener(new Meme());
-
+        jda.addEventListener(new Kick());
         jda.addEventListener(new GuildMemberJoin());  //events
         jda.addEventListener(new GuildMemberLeave());
 
