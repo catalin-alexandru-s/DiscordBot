@@ -24,7 +24,7 @@ public class Main {
 
     public static void main(String[] args) throws LoginException {
 
-        jda = JDABuilder.createDefault("ODQ0NjMxOTQ4MDkzMTYxNDk2.YKVOzA.vtYg1L7y3uGZOQ55uwBFZ7SFtN4").enableIntents(GatewayIntent.GUILD_MEMBERS).disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE).setBulkDeleteSplittingEnabled(false).setCompression(Compression.NONE).setActivity(Activity.watching("over the java project")).build();
+        jda = JDABuilder.createDefault("aici e token ul pt bot").enableIntents(GatewayIntent.GUILD_MEMBERS).disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE).setBulkDeleteSplittingEnabled(false).setCompression(Compression.NONE).setActivity(Activity.watching("over the java project")).build();
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.listening("the Java project"));
 
